@@ -1,3 +1,19 @@
 <resources>
-    <string name="app_name">KMA score</string>
+    <string name="app_name">KMA Score beta</string>
+    <string name="title_kma_score">./kma_score</string>
+    <string name="title_intro_statistics_fragment">App tra cứu điểm dành cho sinh viên KMA</string>
+    <string name="slogan_app">Tổng hợp điểm nhanh chóng và chính xác, sử dụng đơn giản, mã nguồn mở.</string>
+    <string name="from_author">./kma_score from @arahiko, @phuchptty and @cuocdat with ❤️</string>
+    <string name="tong_so_sv">Tổng số sinh viên</string>
+    <string name="so_sv_no_mon">Số sinh viên nợ môn</string>
+    <string name="so_mon_hoc">Số môn học</string>
+    <string name="so_mon_hoan_thanh">Số môn đã hoàn thành</string>
+    <string name="so_mon_con_no">Số môn còn nợ</string>
+    <string name="gpa">GPA</string>
+    <string name="ten_mon_hoc">Tên môn học</string>
+    <string name="diem_tp_1">Điểm TP 1</string>
+    <string name="diem_tp_2">Điểm TP 2</string>
+    <string name="diem_thi">Điểm thi</string>
+    <string name="diem_tong_ket">Điểm TK</string>
+    <string name="diem_chu">Điểm chữ</string>
 </resources>

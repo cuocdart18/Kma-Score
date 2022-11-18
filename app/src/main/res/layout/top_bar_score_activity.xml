@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@color/black"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/tv_kma_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
+            android:text="@string/title_kma_score"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="italic" />
+
+        <ImageView
+            android:id="@+id/imv_shuffle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="10dp"
+            android:layout_toStartOf="@id/imv_search"
+            android:src="@drawable/logo_github" />
+
+        <ImageView
+            android:id="@+id/imv_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="5dp"
+            android:src="@drawable/search_outline" />
+
+    </RelativeLayout>
+</layout>

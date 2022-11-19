@@ -1,6 +1,7 @@
 package com.example.kmascore.api_service;
 
 import com.example.kmascore.models.Result;
+import com.example.kmascore.models.SearchResult;
 import com.example.kmascore.models.StatisticsResult;
 import com.example.kmascore.models.StudentResult;
 
@@ -13,6 +14,7 @@ import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 public interface IKmaScoreApi {
 
@@ -43,6 +45,6 @@ public interface IKmaScoreApi {
     @GET("/subjects")
     Observable<Result> getSubjects();
 
-    @GET("/search?query={data}")
-    Observable<Result> search(@Path("data") String data);
+    @GET("/search")
+    Observable<SearchResult> search(@Query("query") String data);
 }

@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.kmascore.adapter.ScoresAdapter;
 import com.example.kmascore.databinding.FragmentStudentBinding;
+import com.example.kmascore.models.MiniStudent;
 import com.example.kmascore.models.Student;
 import com.example.kmascore.presenters.StudentScoresPresenter;
 import com.example.kmascore.viewmodels.StudentScoreViewModel;
@@ -23,7 +24,12 @@ public class StudentFragment extends Fragment implements StudentScoresPresenter 
     private static final String TAG = StudentFragment.class.getSimpleName();
     private FragmentStudentBinding binding;
     private StudentScoreViewModel studentScoreViewModel;
+    private MiniStudent miniStudent;
     private Disposable disposable;
+
+    public StudentFragment(MiniStudent miniStudent) {
+        this.miniStudent = miniStudent;
+    }
 
     @Nullable
     @Override
@@ -40,8 +46,7 @@ public class StudentFragment extends Fragment implements StudentScoresPresenter 
         binding.setStudentScoreVM(studentScoreViewModel);
 
         // init Data
-        //TODO:TEST
-        studentScoreViewModel.initStudentData("CT060407");
+        studentScoreViewModel.initStudentData(miniStudent.getId());
     }
 
     @Override

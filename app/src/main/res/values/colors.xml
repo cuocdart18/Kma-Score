@@ -13,4 +13,5 @@
     <color name="green_nhat">#00C565</color>
     <color name="red_nhat">#FF5252</color>
     <color name="blue_nhat">#448AFF</color>
+    <color name="color_gray_of_dialog">#9E9E9E</color>
 </resources>

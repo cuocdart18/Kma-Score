@@ -1,9 +1,13 @@
 package com.example.kmascore.models;
 
+import com.google.gson.annotations.SerializedName;
+
 public class MiniStudent {
+    @SerializedName("class")
     private String classInSchool;
     private String id;
     private String name;
+    private int index;
 
     public MiniStudent(String classInSchool, String id, String name) {
         this.classInSchool = classInSchool;
@@ -33,5 +37,13 @@ public class MiniStudent {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public int getIndex() {
+        return index;
+    }
+
+    public void setIndex(int index) {
+        this.index = index;
     }
 }

@@ -1,6 +1,19 @@
 package com.example.kmascore.viewmodels;
 
-import androidx.lifecycle.ViewModel;
+import com.example.kmascore.presenters.ScorePresenter;
 
-public class ScoreViewModel extends ViewModel {
+public class ScoreViewModel {
+    private ScorePresenter scorePresenter;
+
+    public ScoreViewModel(ScorePresenter scorePresenter) {
+        this.scorePresenter = scorePresenter;
+    }
+
+    public void onClickBtnGithub() {
+        scorePresenter.onNavigateUrl();
+    }
+
+    public void onClickBtnSearch() {
+        scorePresenter.onSearchData();
+    }
 }

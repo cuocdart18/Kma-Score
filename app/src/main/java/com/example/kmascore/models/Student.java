@@ -1,9 +1,12 @@
 package com.example.kmascore.models;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.List;
 
 public class Student {
     private double avgScore;
+    @SerializedName("class")
     private String classInSchool;
     private int failedSubjects;
     private String id;

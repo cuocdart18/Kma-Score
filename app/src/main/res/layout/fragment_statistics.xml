@@ -3,6 +3,9 @@
 
     <data>
 
+        <variable
+            name="statisticsViewModel"
+            type="com.example.kmascore.viewmodels.StatisticsViewModel" />
     </data>
 
     <LinearLayout
@@ -12,17 +15,19 @@
         android:orientation="vertical"
         android:weightSum="100">
 
-        <ScrollView
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_weight="95">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="match_parent"
                 android:background="@color/black"
                 android:orientation="vertical"
-                android:padding="15dp">
+                android:paddingStart="15dp"
+                android:paddingTop="15dp"
+                android:paddingEnd="15dp">
 
                 <TextView
                     android:id="@+id/tv_title_intro"
@@ -63,7 +68,7 @@
                         android:id="@+id/tv_tong_sv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="3846"
+                        android:text="@{String.valueOf(statisticsViewModel.statisticObservable.numberOfStudents)}"
                         android:textColor="@color/white"
                         android:textSize="18sp"
                         android:textStyle="bold" />
@@ -89,7 +94,7 @@
                         android:id="@+id/tv_sv_no_mon"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="2202"
+                        android:text="@{String.valueOf(statisticsViewModel.statisticObservable.numberOfDebtors)}"
                         android:textColor="@color/white"
                         android:textSize="18sp"
                         android:textStyle="bold" />
@@ -115,14 +120,14 @@
                         android:id="@+id/tv_so_mon_hoc"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="143"
+                        android:text="@{String.valueOf(statisticsViewModel.statisticObservable.numberOfSubjects)}"
                         android:textColor="@color/white"
                         android:textSize="18sp"
                         android:textStyle="bold" />
                 </LinearLayout>
 
             </LinearLayout>
-        </ScrollView>
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -134,8 +139,6 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:maxLines="1"
                 android:text="@string/from_author"
                 android:textAlignment="center"
                 android:textColor="@color/white"

@@ -15,9 +15,11 @@
             android:id="@+id/top_bar_score_activity"
             layout="@layout/top_bar_score_activity" />
 
-        <include
-            android:id="@+id/fragment_statistics"
-            layout="@layout/fragment_statistics" />
+        <FrameLayout
+            android:id="@+id/ll_for_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
 
     </LinearLayout>
 </layout>

@@ -1,22 +1,12 @@
 package com.example.kmascore.models;
 
 public class Result {
-    private Object data;
     private String message;
     private int statusCode;
 
-    public Result(Object data, String message, int statusCode) {
-        this.data = data;
+    public Result(String message, int statusCode) {
         this.message = message;
         this.statusCode = statusCode;
-    }
-
-    public Object getData() {
-        return data;
-    }
-
-    public void setData(Statistic data) {
-        this.data = data;
     }
 
     public String getMessage() {

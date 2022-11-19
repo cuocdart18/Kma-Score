@@ -7,6 +7,7 @@ public class Score {
     private String examScore;
     private String avgScore;
     private String alphabetScore;
+    private int index;
 
     public Score(Subject subject, String firstComponentScore, String secondComponentScore, String examScore, String avgScore, String alphabetScore) {
         this.subject = subject;
@@ -63,5 +64,13 @@ public class Score {
 
     public void setAlphabetScore(String alphabetScore) {
         this.alphabetScore = alphabetScore;
+    }
+
+    public int getIndex() {
+        return index;
+    }
+
+    public void setIndex(int index) {
+        this.index = index;
     }
 }

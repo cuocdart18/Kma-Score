@@ -3,6 +3,13 @@
 
     <data>
 
+        <variable
+            name="studentScoreVM"
+            type="com.example.kmascore.viewmodels.StudentScoreViewModel" />
+
+        <variable
+            name="student"
+            type="com.example.kmascore.models.Student" />
     </data>
 
     <androidx.core.widget.NestedScrollView
@@ -10,7 +17,8 @@
         android:layout_height="match_parent"
         android:background="@color/black"
         android:orientation="vertical"
-        android:padding="15dp">
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -22,7 +30,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
-                android:text="Đỗ Võ Hữu Tùng"
+                android:text="@{student.name}"
                 android:textColor="@color/white"
                 android:textSize="28sp" />
 
@@ -51,7 +59,7 @@
                         android:id="@+id/tv_id"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="CT040153"
+                        android:text="@{student.id}"
                         android:textColor="@color/white"
                         android:textSize="14sp" />
                 </LinearLayout>
@@ -74,7 +82,7 @@
                         android:id="@+id/tv_class_in_school"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="CT4A"
+                        android:text="@{student.classInSchool}"
                         android:textColor="@color/white"
                         android:textSize="14sp" />
                 </LinearLayout>
@@ -100,7 +108,7 @@
                     android:id="@+id/tv_passed_subjects"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="44"
+                    android:text="@{String.valueOf(student.passedSubjects)}"
                     android:textColor="@color/white"
                     android:textSize="18sp"
                     android:textStyle="bold" />
@@ -126,7 +134,7 @@
                     android:id="@+id/tv_failed_subjects"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="1"
+                    android:text="@{String.valueOf(student.failedSubjects)}"
                     android:textColor="@color/white"
                     android:textSize="18sp"
                     android:textStyle="bold" />
@@ -135,7 +143,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="20dp"
                 android:background="@drawable/bgr_so_mon_hoc"
                 android:gravity="center_vertical"
                 android:orientation="vertical"
@@ -152,7 +160,7 @@
                     android:id="@+id/tv_avg_score"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="2.54"
+                    android:text="@{String.valueOf(student.avgScore)}"
                     android:textColor="@color/white"
                     android:textSize="18sp"
                     android:textStyle="bold" />

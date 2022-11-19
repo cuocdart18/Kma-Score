@@ -1,12 +1,15 @@
 package com.example.kmascore.api_service;
 
 import com.example.kmascore.models.Result;
+import com.example.kmascore.models.StatisticsResult;
+import com.example.kmascore.models.StudentResult;
 
 import java.util.concurrent.TimeUnit;
 
 import io.reactivex.rxjava3.core.Observable;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
@@ -23,15 +26,16 @@ public interface IKmaScoreApi {
     IKmaScoreApi getInstance = new Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
+            .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
             .client(builder.build())
             .build()
             .create(IKmaScoreApi.class);
 
     @GET("/statistics")
-    Observable<Result> getStatistics();
+    Observable<StatisticsResult> getStatistics();
 
     @GET("/student/{studentId}")
-    Observable<Result> getStudentStatistics(@Path("studentId") String studentId);
+    Observable<StudentResult> getStudentStatistics(@Path("studentId") String studentId);
 
     @GET("/subject/{subjectId}")
     Observable<Result> getSubjectStatistics(@Path("subjectId") String subjectId);

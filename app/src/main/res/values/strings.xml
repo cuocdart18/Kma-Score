@@ -3,7 +3,7 @@
     <string name="title_kma_score">./kma_score</string>
     <string name="title_intro_statistics_fragment">App tra cứu điểm dành cho sinh viên KMA</string>
     <string name="slogan_app">Tổng hợp điểm nhanh chóng và chính xác, sử dụng đơn giản, mã nguồn mở.</string>
-    <string name="from_author">./kma_score from @arahiko, @phuchptty and @cuocdat with ❤</string>
+    <string name="from_author">./kma_score from @KIT with ❤</string>
     <string name="tong_so_sv">Tổng số sinh viên</string>
     <string name="so_sv_no_mon">Số sinh viên nợ môn</string>
     <string name="so_mon_hoc">Số môn học</string>

@@ -18,7 +18,9 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="15dp">
+            android:paddingStart="32dp"
+            android:paddingTop="32dp"
+            android:paddingEnd="32dp">
 
             <TextView
                 android:id="@+id/tv_title_intro"
@@ -39,7 +41,7 @@
                 android:id="@+id/tv_slogan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
+                android:layout_marginBottom="32dp"
                 android:text="@string/slogan_app"
                 android:textColor="@color/gray"
                 android:textSize="16sp"
@@ -53,7 +55,7 @@
                 android:id="@+id/ll_tong_so_sv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
+                android:layout_marginBottom="32dp"
                 android:background="@drawable/bgr_tong_so_sinh_vien"
                 android:gravity="center_vertical"
                 android:orientation="vertical"
@@ -84,7 +86,7 @@
                 android:id="@+id/ll_sv_no_mon"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
+                android:layout_marginBottom="32dp"
                 android:background="@drawable/bgr_so_sv_no_mon"
                 android:gravity="center_vertical"
                 android:orientation="vertical"

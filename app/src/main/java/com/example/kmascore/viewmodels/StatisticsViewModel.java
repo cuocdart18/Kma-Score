@@ -4,15 +4,15 @@ import android.util.Log;
 
 import androidx.databinding.ObservableField;
 
+import com.example.kmascore.R;
 import com.example.kmascore.api_service.IKmaScoreApi;
-import com.example.kmascore.models.Result;
 import com.example.kmascore.models.Statistic;
 import com.example.kmascore.models.StatisticsResult;
+import com.example.kmascore.presenters.StatisticsPresenter;
 
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.annotations.NonNull;
 import io.reactivex.rxjava3.core.Observer;
-import io.reactivex.rxjava3.core.Scheduler;
 import io.reactivex.rxjava3.disposables.Disposable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
@@ -20,9 +20,11 @@ public class StatisticsViewModel {
     private static final String TAG = StatisticsViewModel.class.getSimpleName();
     public ObservableField<Statistic> statisticObservable = new ObservableField<>();
     private Disposable disposable;
+    private StatisticsPresenter statisticsPresenter;
 
-    public StatisticsViewModel(Disposable disposable) {
+    public StatisticsViewModel(StatisticsPresenter statisticsPresenter, Disposable disposable) {
         this.disposable = disposable;
+        this.statisticsPresenter = statisticsPresenter;
     }
 
     public void initStatisticalData() {
@@ -55,6 +57,10 @@ public class StatisticsViewModel {
                         Log.e(TAG, "completed observer");
                     }
                 });
+    }
+
+    public void onClickTvKitFooter() {
+        statisticsPresenter.openUrlFromTvKitFooter();
     }
 
 }

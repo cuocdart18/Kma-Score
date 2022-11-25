@@ -4,4 +4,6 @@ import com.example.kmascore.models.Student;
 
 public interface StudentScoresPresenter {
     void bindingStudentData(Student student);
+
+    void openUrlFromTvKitFooter();
 }

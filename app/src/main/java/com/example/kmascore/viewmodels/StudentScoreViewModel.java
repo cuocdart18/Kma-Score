@@ -59,4 +59,8 @@ public class StudentScoreViewModel {
                     }
                 });
     }
+
+    public void onClickTvKitFooter() {
+        studentScoresPresenter.openUrlFromTvKitFooter();
+    }
 }

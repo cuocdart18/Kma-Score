@@ -26,7 +26,7 @@
             android:text="@string/title_kma_score"
             android:textColor="@color/white"
             android:textSize="20sp"
-            android:textStyle="italic" />
+            android:textStyle="normal" />
 
         <ImageView
             android:id="@+id/imv_shuffle"

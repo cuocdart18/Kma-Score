@@ -1,5 +1,7 @@
 package com.example.kmascore.fragments;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -11,6 +13,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.example.kmascore.R;
 import com.example.kmascore.adapter.ScoresAdapter;
 import com.example.kmascore.databinding.FragmentStudentBinding;
 import com.example.kmascore.models.MiniStudent;
@@ -60,6 +63,14 @@ public class StudentFragment extends Fragment implements StudentScoresPresenter 
         binding.rvScores.setFocusable(false);
         binding.rvScores.setNestedScrollingEnabled(false);
         binding.rvScores.setAdapter(scoresAdapter);
+    }
+
+    @Override
+    public void openUrlFromTvKitFooter() {
+        String url = getString(R.string.link_gr_kit);
+        Intent i = new Intent(Intent.ACTION_VIEW);
+        i.setData(Uri.parse(url));
+        startActivity(i);
     }
 
     @Override

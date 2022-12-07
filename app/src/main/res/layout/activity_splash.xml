@@ -7,8 +7,15 @@
     android:orientation="vertical">
 
     <ImageView
-        android:layout_width="240dp"
-        android:layout_height="240dp"
-        android:src="@drawable/kma_score_mini" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_launcher_foreground" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/designed_by_author"
+        android:textColor="@color/gray"
+        android:textSize="16sp" />
 
 </LinearLayout>

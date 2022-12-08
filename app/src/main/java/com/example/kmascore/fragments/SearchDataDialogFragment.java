@@ -61,6 +61,8 @@ public class SearchDataDialogFragment extends DialogFragment implements SearchDa
         //setup viewModel
         searchDataViewModel = new SearchDataViewModel(this, disposable);
         binding.setSearchDataVM(searchDataViewModel);
+
+        searchDataViewModel.showRecentSearchHistory(getContext());
     }
 
     private void setScaleUI() {
@@ -89,6 +91,9 @@ public class SearchDataDialogFragment extends DialogFragment implements SearchDa
 
     @Override
     public void onClickItemInSearchDataDialog(MiniStudent miniStudent) {
+        // add student into recent db
+        searchDataViewModel.insertMiniStudentToDb(getContext(), miniStudent);
+        // query data
         iSendDataToActivity.sendData(miniStudent);
         this.dismiss();
     }

@@ -47,7 +47,7 @@ public class ScoreActivity extends AppCompatActivity implements ScorePresenter, 
 
     @Override
     public void onNavigateUrl() {
-        String url = getString(R.string.src_kma_score_web);
+        String url = getString(R.string.src_kma_score_mobile);
         Intent i = new Intent(Intent.ACTION_VIEW);
         i.setData(Uri.parse(url));
         startActivity(i);

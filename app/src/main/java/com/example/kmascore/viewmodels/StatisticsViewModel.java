@@ -4,7 +4,6 @@ import android.util.Log;
 
 import androidx.databinding.ObservableField;
 
-import com.example.kmascore.R;
 import com.example.kmascore.api_service.IKmaScoreApi;
 import com.example.kmascore.models.Statistic;
 import com.example.kmascore.models.StatisticsResult;
@@ -20,7 +19,7 @@ public class StatisticsViewModel {
     private static final String TAG = StatisticsViewModel.class.getSimpleName();
     public ObservableField<Statistic> statisticObservable = new ObservableField<>();
     private Disposable disposable;
-    private StatisticsPresenter statisticsPresenter;
+    private final StatisticsPresenter statisticsPresenter;
 
     public StatisticsViewModel(StatisticsPresenter statisticsPresenter, Disposable disposable) {
         this.disposable = disposable;

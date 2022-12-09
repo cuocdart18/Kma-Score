@@ -19,7 +19,7 @@ public class StudentScoreViewModel {
     private static final String TAG = StudentScoreViewModel.class.getSimpleName();
     public ObservableField<Student> studentObservable = new ObservableField<>();
     private Disposable disposable;
-    private StudentScoresPresenter studentScoresPresenter;
+    private final StudentScoresPresenter studentScoresPresenter;
 
     public StudentScoreViewModel(Disposable disposable, StudentScoresPresenter studentScoresPresenter) {
         this.disposable = disposable;

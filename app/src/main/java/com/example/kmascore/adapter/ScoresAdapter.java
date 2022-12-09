@@ -1,11 +1,10 @@
 package com.example.kmascore.adapter;
 
+import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
-import androidx.databinding.ObservableField;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.kmascore.databinding.ItemSubjectScoreBinding;
@@ -17,6 +16,7 @@ public class ScoresAdapter extends RecyclerView.Adapter<ScoresAdapter.ScoresView
     private List<Score> scores;
     private ItemSubjectScoreBinding binding;
 
+    @SuppressLint("NotifyDataSetChanged")
     public void setScores(List<Score> scores) {
         this.scores = scores;
         notifyDataSetChanged();

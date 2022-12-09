@@ -6,13 +6,10 @@ import android.util.Log;
 import androidx.databinding.ObservableField;
 
 import com.example.kmascore.api_service.IKmaScoreApi;
-import com.example.kmascore.database.MiniStudentDAO;
 import com.example.kmascore.database.MiniStudentDatabase;
 import com.example.kmascore.models.MiniStudent;
 import com.example.kmascore.models.SearchResult;
 import com.example.kmascore.presenters.SearchDataPresenter;
-
-import org.reactivestreams.Subscription;
 
 import java.util.Calendar;
 import java.util.List;
@@ -21,19 +18,15 @@ import java.util.concurrent.TimeUnit;
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.annotations.NonNull;
 import io.reactivex.rxjava3.core.CompletableObserver;
-import io.reactivex.rxjava3.core.FlowableSubscriber;
 import io.reactivex.rxjava3.core.Observer;
 import io.reactivex.rxjava3.core.SingleObserver;
-import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import io.reactivex.rxjava3.disposables.Disposable;
-import io.reactivex.rxjava3.functions.Consumer;
-import io.reactivex.rxjava3.functions.Predicate;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 import io.reactivex.rxjava3.subjects.PublishSubject;
 
 public class SearchDataViewModel {
     private static final String TAG = SearchDataViewModel.class.getSimpleName();
-    private SearchDataPresenter searchDataPresenter;
+    private final SearchDataPresenter searchDataPresenter;
     public ObservableField<String> searchData = new ObservableField<>();
     public ObservableField<Boolean> isUserTyped = new ObservableField<>();
     private Disposable disposable;
@@ -42,25 +35,13 @@ public class SearchDataViewModel {
     private final PublishSubject<String> subjectSearchRequest = PublishSubject.create();
     private final @NonNull Disposable disposableSearchRequest = subjectSearchRequest
             .debounce(400, TimeUnit.MILLISECONDS)
-            .filter(new Predicate<String>() {
-                @Override
-                public boolean test(String s) throws Throwable {
-                    if (s.isEmpty()) {
-                        return false;
-                    } else {
-                        return true;
-                    }
-                }
-            })
+            .filter(s -> !s.isEmpty())
             .distinctUntilChanged()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe(new Consumer<String>() {
-                @Override
-                public void accept(String s) throws Throwable {
-                    Log.e(TAG, s);
-                    makeCallApi(s);
-                }
+            .subscribe(s -> {
+                Log.e(TAG, s);
+                makeCallApi(s);
             });
 
     // constructor

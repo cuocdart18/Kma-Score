@@ -19,13 +19,10 @@ public class SplashActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         Handler handler = new Handler();
-        Runnable runnable = new Runnable() {
-            @Override
-            public void run() {
-                Intent intent = new Intent(SplashActivity.this, ScoreActivity.class);
-                startActivity(intent);
-                finish();
-            }
+        Runnable runnable = () -> {
+            Intent intent = new Intent(SplashActivity.this, ScoreActivity.class);
+            startActivity(intent);
+            finish();
         };
         handler.postDelayed(runnable, 2000);
     }

@@ -3,7 +3,6 @@ package com.example.kmascore.activities;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -47,7 +46,7 @@ public class ScoreActivity extends AppCompatActivity implements ScorePresenter, 
 
     @Override
     public void onNavigateUrl() {
-        String url = getString(R.string.src_kma_score_web);
+        String url = getString(R.string.src_kma_score_mobile);
         Intent i = new Intent(Intent.ACTION_VIEW);
         i.setData(Uri.parse(url));
         startActivity(i);

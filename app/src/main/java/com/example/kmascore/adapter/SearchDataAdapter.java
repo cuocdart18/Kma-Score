@@ -16,7 +16,7 @@ import java.util.List;
 public class SearchDataAdapter extends RecyclerView.Adapter<SearchDataAdapter.SearchDataViewHolder> {
     private List<MiniStudent> miniStudents;
     private ItemSearchDataBinding binding;
-    private IMiniStudentCallback iMiniStudentCallback;
+    private final IMiniStudentCallback iMiniStudentCallback;
 
     public SearchDataAdapter(IMiniStudentCallback iMiniStudentCallback) {
         this.iMiniStudentCallback = iMiniStudentCallback;
@@ -40,12 +40,7 @@ public class SearchDataAdapter extends RecyclerView.Adapter<SearchDataAdapter.Se
         MiniStudent miniStudent = miniStudents.get(position);
         miniStudent.setIndex(position);
         binding.setMiniStudent(miniStudent);
-        binding.getRoot().setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                iMiniStudentCallback.onClickItemInSearchDataDialog(miniStudent);
-            }
-        });
+        binding.getRoot().setOnClickListener(v -> iMiniStudentCallback.onClickItemInSearchDataDialog(miniStudent));
     }
 
     @Override

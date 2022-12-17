@@ -37,7 +37,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
-            android:text="@string/ket_qua_tim_kiem"
+            android:text="@{searchDataVM.isUserTyped ? @string/ket_qua_tim_kiem : @string/lich_su_tim_kiem}"
             android:textColor="@color/white"
             android:textSize="18sp" />
 

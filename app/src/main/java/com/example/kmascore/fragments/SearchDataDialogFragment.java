@@ -1,6 +1,5 @@
 package com.example.kmascore.fragments;
 
-import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.drawable.ColorDrawable;
@@ -11,12 +10,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
-import android.view.WindowManager;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
-import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.kmascore.adapter.IMiniStudentCallback;
@@ -27,16 +24,17 @@ import com.example.kmascore.presenters.SearchDataPresenter;
 import com.example.kmascore.viewmodels.SearchDataViewModel;
 
 import java.util.List;
+import java.util.Objects;
 
 import io.reactivex.rxjava3.disposables.Disposable;
 
 public class SearchDataDialogFragment extends DialogFragment implements SearchDataPresenter, IMiniStudentCallback {
-    private ISendDataToActivity iSendDataToActivity;
+    private final ISendDataToActivity iSendDataToActivity;
     private DialogSearchBinding binding;
     private SearchDataViewModel searchDataViewModel;
 
-    private SearchDataAdapter searchDataAdapter = new SearchDataAdapter(this);
-    private LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+    private final SearchDataAdapter searchDataAdapter = new SearchDataAdapter(this);
+    private final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
 
     private Disposable disposable;
 
@@ -48,7 +46,7 @@ public class SearchDataDialogFragment extends DialogFragment implements SearchDa
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = DialogSearchBinding.inflate(inflater, container);
-        getDialog().requestWindowFeature(Window.FEATURE_NO_TITLE);
+        Objects.requireNonNull(getDialog()).requestWindowFeature(Window.FEATURE_NO_TITLE);
         return binding.getRoot();
     }
 
@@ -61,11 +59,13 @@ public class SearchDataDialogFragment extends DialogFragment implements SearchDa
         //setup viewModel
         searchDataViewModel = new SearchDataViewModel(this, disposable);
         binding.setSearchDataVM(searchDataViewModel);
+
+        searchDataViewModel.showRecentSearchHistory(getContext());
     }
 
     private void setScaleUI() {
         // Set the width of the dialog proportional
-        getDialog().getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        Objects.requireNonNull(getDialog()).getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         Window window = getDialog().getWindow();
         Point size = new Point();
         Display display = window.getWindowManager().getDefaultDisplay();
@@ -89,6 +89,9 @@ public class SearchDataDialogFragment extends DialogFragment implements SearchDa
 
     @Override
     public void onClickItemInSearchDataDialog(MiniStudent miniStudent) {
+        // add student into recent db
+        searchDataViewModel.insertMiniStudentToDb(getContext(), miniStudent);
+        // query data
         iSendDataToActivity.sendData(miniStudent);
         this.dismiss();
     }

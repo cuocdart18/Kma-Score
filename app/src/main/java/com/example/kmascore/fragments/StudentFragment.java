@@ -27,7 +27,7 @@ public class StudentFragment extends Fragment implements StudentScoresPresenter 
     private static final String TAG = StudentFragment.class.getSimpleName();
     private FragmentStudentBinding binding;
     private StudentScoreViewModel studentScoreViewModel;
-    private MiniStudent miniStudent;
+    private final MiniStudent miniStudent;
     private Disposable disposable;
 
     public StudentFragment(MiniStudent miniStudent) {
@@ -38,8 +38,7 @@ public class StudentFragment extends Fragment implements StudentScoresPresenter 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = FragmentStudentBinding.inflate(inflater, container, false);
-        View view = binding.getRoot();
-        return view;
+        return binding.getRoot();
     }
 
     @Override

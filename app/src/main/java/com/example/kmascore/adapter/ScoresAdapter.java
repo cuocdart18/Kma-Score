@@ -13,8 +13,13 @@ import com.example.kmascore.models.Score;
 import java.util.List;
 
 public class ScoresAdapter extends RecyclerView.Adapter<ScoresAdapter.ScoresViewHolder> {
+    private final IScoreCallback iScoreCallback;
     private List<Score> scores;
     private ItemSubjectScoreBinding binding;
+
+    public ScoresAdapter(IScoreCallback iScoreCallback) {
+        this.iScoreCallback = iScoreCallback;
+    }
 
     @SuppressLint("NotifyDataSetChanged")
     public void setScores(List<Score> scores) {
@@ -35,6 +40,8 @@ public class ScoresAdapter extends RecyclerView.Adapter<ScoresAdapter.ScoresView
         // position to define color of row
         score.setIndex(position);
         holder.binding.setScore(score);
+        // set on click for item subject score
+        holder.binding.getRoot().setOnClickListener(v -> iScoreCallback.openStatisticSubject(score.getSubject()));
     }
 
     @Override
@@ -43,7 +50,7 @@ public class ScoresAdapter extends RecyclerView.Adapter<ScoresAdapter.ScoresView
     }
 
     public static class ScoresViewHolder extends RecyclerView.ViewHolder {
-        private ItemSubjectScoreBinding binding;
+        private final ItemSubjectScoreBinding binding;
 
         public ScoresViewHolder(@NonNull ItemSubjectScoreBinding binding) {
             super(binding.getRoot());

@@ -72,7 +72,7 @@ public class SearchDataViewModel {
                 .subscribe(new Observer<SearchResult>() {
                     @Override
                     public void onSubscribe(@NonNull Disposable d) {
-                        Log.d(TAG, "on subscribe");
+                        Log.d(TAG, "on subscribe search");
                         disposable = d;
                     }
 
@@ -86,12 +86,12 @@ public class SearchDataViewModel {
 
                     @Override
                     public void onError(@NonNull Throwable e) {
-                        Log.d(TAG, "on error -> " + text);
+                        Log.d(TAG, "on error search -> " + text);
                     }
 
                     @Override
                     public void onComplete() {
-                        Log.d(TAG, "on complete");
+                        Log.d(TAG, "on complete search");
                     }
                 });
     }
@@ -110,7 +110,7 @@ public class SearchDataViewModel {
                 .subscribe(new SingleObserver<List<MiniStudent>>() {
                     @Override
                     public void onSubscribe(@NonNull Disposable d) {
-                        Log.d(TAG, "request db on subscribe");
+                        Log.d(TAG, "request db on subscribe getRecentHistorySearch");
                     }
 
                     @Override
@@ -119,12 +119,12 @@ public class SearchDataViewModel {
                             searchDataPresenter.showMiniStudentToUI(miniStudents);
                         }
 
-                        Log.d(TAG, "request db on success");
+                        Log.d(TAG, "request db on success getRecentHistorySearch");
                     }
 
                     @Override
                     public void onError(@NonNull Throwable e) {
-                        Log.d(TAG, "request db on error ->> " + e.getMessage());
+                        Log.d(TAG, "request db on error getRecentHistorySearch ->> " + e.getMessage());
                     }
                 });
     }
@@ -134,7 +134,7 @@ public class SearchDataViewModel {
         miniStudent.setDateModified(Calendar.getInstance().getTime());
         saveMiniStudentsIntoDatabase(context, miniStudent);
 
-        Log.d(TAG, "insert " + miniStudent);
+        Log.d(TAG, "insert " + miniStudent.getId());
     }
 
     //save data to database
@@ -145,17 +145,17 @@ public class SearchDataViewModel {
                 .subscribe(new CompletableObserver() {
                     @Override
                     public void onSubscribe(@NonNull Disposable d) {
-                        Log.d(TAG, "insert on subscribe");
+                        Log.d(TAG, "insert on subscribe insertStudent");
                     }
 
                     @Override
                     public void onComplete() {
-                        Log.d(TAG, "insert on completed");
+                        Log.d(TAG, "insert on completed insertStudent");
                     }
 
                     @Override
                     public void onError(@NonNull Throwable e) {
-                        Log.d(TAG, "insert on error --> " + e);
+                        Log.d(TAG, "insert on error insertStudent --> " + e);
                     }
                 });
     }

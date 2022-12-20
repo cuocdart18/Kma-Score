@@ -2,6 +2,7 @@ package com.example.kmascore.api_service;
 
 import com.example.kmascore.models.Result;
 import com.example.kmascore.models.SearchResult;
+import com.example.kmascore.models.StatisticSubjectResult;
 import com.example.kmascore.models.StatisticsResult;
 import com.example.kmascore.models.StudentResult;
 
@@ -40,7 +41,7 @@ public interface IKmaScoreApi {
     Observable<StudentResult> getStudentStatistics(@Path("studentId") String studentId);
 
     @GET("/subject/{subjectId}")
-    Observable<Result> getSubjectStatistics(@Path("subjectId") String subjectId);
+    Observable<StatisticSubjectResult> getSubjectStatistics(@Path("subjectId") String subjectId);
 
     @GET("/subjects")
     Observable<Result> getSubjects();

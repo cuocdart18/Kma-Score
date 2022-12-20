@@ -25,4 +25,6 @@
     <string name="link_gr_kit">https://www.facebook.com/kitclubKMA</string>
     <string name="from_author">do something</string>
     <string name="designed_by_author">Designed by KIT</string>
+    <string name="failed_students">Failed students</string>
+    <string name="passed_students">Passed students</string>
 </resources>

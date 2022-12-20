@@ -95,5 +95,6 @@
             android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="normal" />
+
     </LinearLayout>
 </layout>

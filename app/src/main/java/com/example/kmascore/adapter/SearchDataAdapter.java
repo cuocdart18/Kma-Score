@@ -2,7 +2,6 @@ package com.example.kmascore.adapter;
 
 import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -39,8 +38,8 @@ public class SearchDataAdapter extends RecyclerView.Adapter<SearchDataAdapter.Se
     public void onBindViewHolder(@NonNull SearchDataViewHolder holder, int position) {
         MiniStudent miniStudent = miniStudents.get(position);
         miniStudent.setIndex(position);
-        binding.setMiniStudent(miniStudent);
-        binding.getRoot().setOnClickListener(v -> iMiniStudentCallback.onClickItemInSearchDataDialog(miniStudent));
+        holder.binding.setMiniStudent(miniStudent);
+        holder.binding.getRoot().setOnClickListener(v -> iMiniStudentCallback.onClickItemInSearchDataDialog(miniStudent));
     }
 
     @Override
@@ -49,9 +48,11 @@ public class SearchDataAdapter extends RecyclerView.Adapter<SearchDataAdapter.Se
     }
 
     public static class SearchDataViewHolder extends RecyclerView.ViewHolder {
+        private ItemSearchDataBinding binding;
 
         public SearchDataViewHolder(@NonNull ItemSearchDataBinding binding) {
             super(binding.getRoot());
+            this.binding = binding;
         }
     }
 }

@@ -3,9 +3,11 @@ package com.example.kmascore.activities;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -17,6 +19,9 @@ import com.example.kmascore.fragments.StudentFragment;
 import com.example.kmascore.models.MiniStudent;
 import com.example.kmascore.presenters.ScorePresenter;
 import com.example.kmascore.viewmodels.ScoreViewModel;
+
+import java.util.List;
+import java.util.Objects;
 
 public class ScoreActivity extends AppCompatActivity implements ScorePresenter, SearchDataDialogFragment.ISendDataToActivity {
     private static final String TAG = ScoreActivity.class.getSimpleName();
@@ -65,9 +70,18 @@ public class ScoreActivity extends AppCompatActivity implements ScorePresenter, 
         StudentFragment studentFragment = new StudentFragment(miniStudent);
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
-        ft.add(binding.llForFragment.getId(), studentFragment);
-        ft.addToBackStack(StudentFragment.class.getSimpleName());
-        ft.commit();
+
+        List<Fragment> fragments = fm.getFragments();
+        if (Objects.equals(fragments.get(fragments.size() - 2).getTag(), miniStudent.getId())) {
+            // request student has the same id with current student fragment
+            Log.d(TAG, "student " + miniStudent.getId() + " is exist");
+        } else {
+            // unique id
+            ft.add(binding.llForFragment.getId(), studentFragment, miniStudent.getId());
+            ft.addToBackStack(StudentFragment.class.getSimpleName());
+            ft.commit();
+            Log.d(TAG, "add " + miniStudent.getId() + " successfully");
+        }
     }
 
     @Override

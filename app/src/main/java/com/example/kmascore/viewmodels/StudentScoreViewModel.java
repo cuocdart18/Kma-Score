@@ -33,7 +33,7 @@ public class StudentScoreViewModel {
                 .subscribe(new Observer<StudentResult>() {
                     @Override
                     public void onSubscribe(@NonNull Disposable d) {
-                        Log.e(TAG, "on subscribe");
+                        Log.d(TAG, "on subscribe");
                         disposable = d;
                     }
 
@@ -44,18 +44,18 @@ public class StudentScoreViewModel {
                             // update data to UI
                             studentScoresPresenter.bindingStudentData(studentObservable.get());
                         } else {
-                            Log.e(TAG, "error observer");
+                            Log.d(TAG, "error observer");
                         }
                     }
 
                     @Override
                     public void onError(@NonNull Throwable e) {
-                        Log.e(TAG, "error observer");
+                        Log.d(TAG, "error observer");
                     }
 
                     @Override
                     public void onComplete() {
-                        Log.e(TAG, "completed observer");
+                        Log.d(TAG, "completed observer");
                     }
                 });
     }

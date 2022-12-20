@@ -34,7 +34,7 @@ public class ScoresAdapter extends RecyclerView.Adapter<ScoresAdapter.ScoresView
         Score score = scores.get(position);
         // position to define color of row
         score.setIndex(position);
-        binding.setScore(score);
+        holder.binding.setScore(score);
     }
 
     @Override
@@ -43,9 +43,11 @@ public class ScoresAdapter extends RecyclerView.Adapter<ScoresAdapter.ScoresView
     }
 
     public static class ScoresViewHolder extends RecyclerView.ViewHolder {
+        private ItemSubjectScoreBinding binding;
 
         public ScoresViewHolder(@NonNull ItemSubjectScoreBinding binding) {
             super(binding.getRoot());
+            this.binding = binding;
         }
     }
 }

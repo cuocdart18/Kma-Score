@@ -33,7 +33,7 @@ public class StatisticsViewModel {
                 .subscribe(new Observer<StatisticsResult>() {
                     @Override
                     public void onSubscribe(@NonNull Disposable d) {
-                        Log.e(TAG, "on subscribe");
+                        Log.d(TAG, "on subscribe");
                         disposable = d;
                     }
 
@@ -42,18 +42,18 @@ public class StatisticsViewModel {
                         if (statisticsResult != null && statisticsResult.getStatusCode() == 200) {
                             statisticObservable.set(statisticsResult.getData());
                         } else {
-                            Log.e(TAG, "error observer");
+                            Log.d(TAG, "error observer");
                         }
                     }
 
                     @Override
                     public void onError(@NonNull Throwable e) {
-                        Log.e(TAG, "error observer");
+                        Log.d(TAG, "error observer");
                     }
 
                     @Override
                     public void onComplete() {
-                        Log.e(TAG, "completed observer");
+                        Log.d(TAG, "completed observer");
                     }
                 });
     }
